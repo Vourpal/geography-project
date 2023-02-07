@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import Country from "./Country";
 
-const Countries = () => {
-  // const [country, setCountry] = useState([])
-  // const addCountry = (e) => {
-  //     setCountry()
-
-  // }
-  return <div>This is where you will put individual countries in</div>;
+const Countries = (props) => {
+  return (
+    <div>
+      This will have all countries listed
+      <Country />
+    </div>
+  );
 };
 export default Countries;
