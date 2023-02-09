@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { obtainAllCountries } from "./api";
-const Country = () => {
+const Country = (props) => {
  
   return (
     <div>
       <div>image will be placed here</div>
-      <div>countryName</div>
-      <div>countryPopulation</div>
-      <div>countryRegion</div>
+      <div>{props.country.name}</div>
+      <div>{props.country.population}</div>
+      <div>{props.country.region}</div>
       <div>countryCapital </div>
 
       <button>click me</button>

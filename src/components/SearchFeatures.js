@@ -27,3 +27,6 @@ const SearchFeatures = () => {
 
 export default SearchFeatures;
 // probably use onChange for the filter portion
+//    <button name="searchBar" onClick={() => {
+//   props.obama("pito grande")
+// }}>
