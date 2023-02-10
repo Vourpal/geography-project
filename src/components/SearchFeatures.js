@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { obtainSearchInformation } from "./api";
-const SearchFeatures = () => {
+const SearchFeatures = (props) => {
   const [country, setCountry] = useState("");
   const onCountryChange = (e) => {
     setCountry(e.target.value);
@@ -8,7 +8,15 @@ const SearchFeatures = () => {
   const listCountry = (e) => {
     e.preventDefault();
     obtainSearchInformation(country).then((res) => {
-      console.log(res);
+      const searchedCountries = res.data.map((e) => {
+        return {
+          name: e.name.common,
+          region: e.region,
+          capital: e.capital[0],
+          population: e.population,
+        };
+      });
+      props.setBlock(searchedCountries);
     });
   };
   return (
