@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { obtainAllCountries } from "./api";
+import "./Stylesheets/CountryStyle.css"
+import React from "react";
 const Country = (props) => {
- 
   return (
-    <div>
+    <div id="Country">
       <div>image will be placed here</div>
       <div>{props.country.name}</div>
       <div>{props.country.population}</div>
