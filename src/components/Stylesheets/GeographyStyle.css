@@ -1,0 +1,14 @@
+html{
+    background-color: hsl(0, 0%, 98%);
+    font-family: 'Nunito Sans', sans-serif;
+    
+}
+
+#header{
+    font-weight: bold;
+    font-size: 30px;
+    border-bottom: solid hsl(0, 0%, 52%) 1px;
+    padding: 15px;
+    padding-left: 30px;
+    margin-bottom: 35px;
+}

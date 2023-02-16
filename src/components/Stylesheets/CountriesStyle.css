@@ -1,4 +1,6 @@
 #countries{
     display: grid;
-    grid-template-columns: repeat(auto-fill,200px);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 30px;
 }

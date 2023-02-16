@@ -14,15 +14,16 @@ const GeographyApp = () => {
           name: e.name,
           region: e.region,
           capital: e.capital,
-          population: e.population,
+          population: e.population.toLocaleString("en-US"),
+          flag: e.flag
         };
       });
       setBlock(countries);
     });
   }, []);
   return (
-    <div>
-      <header>Where in the world?</header>
+    <div id="body-wrapper">
+      <header id="header">Where in the world?</header>
       <SearchFeatures setBlock={setBlock} setRegionFilter={setRegionFilter} />
       <Countries
         block={block}

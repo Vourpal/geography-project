@@ -2,3 +2,31 @@
     display: flex;
     justify-content: space-between;
 }
+#search{
+    margin-left: 30px;
+    /* padding: 5px 0px 5px 15px; */
+    width: 300px;
+    height: 30px;
+    padding-left: 50px;
+    font-size: 20px;
+
+}
+
+#search-button{
+    position: absolute;
+    left: 48px;
+    top: 125px;
+    background-color: transparent;
+    border: none;
+}
+
+#Capa_1{
+    position: relative;
+    height: 15px;
+    width: 15px;
+}
+
+.filter-region{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+}

@@ -1,16 +1,13 @@
-import "./Stylesheets/CountryStyle.css"
+import "./Stylesheets/CountryStyle.css";
 import React from "react";
 const Country = (props) => {
   return (
     <div id="Country">
-      <div>image will be placed here</div>
-      <div>{props.country.name}</div>
-      <div>{props.country.population}</div>
-      <div>{props.country.region}</div>
-      <div>countryCapital </div>
-
-      <button>click me</button>
-      <button>click me after</button>
+      <img src={props.country.flag} alt="Country flag" id="flag"></img>
+      <div id="name">{props.country.name}</div>
+      <div id="population"><span className="bold">Population:</span>{props.country.population}</div>
+      <div id="region"><span className="bold">Region:</span>{props.country.region}</div>
+      <div id="capital"><span className="bold">Capital:</span>{props.country.capital}</div>
     </div>
   );
 };

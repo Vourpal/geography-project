@@ -1,0 +1,35 @@
+#Country {
+    height: 500px;
+    margin-top: 30px;
+    margin-left: 30px;
+    background-color: hsl(0, 0%, 100%);
+    width: 393px;
+}
+
+#flag{
+    width: 400px;
+    height: 250px;
+    border: solid;
+}
+#name{
+    margin-left: 24px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.bold{
+    font-weight: bold;
+    margin-left: 24px;
+}
+
+/* #population{
+
+}
+
+#region{
+
+}
+
+#capital{
+
+} */
