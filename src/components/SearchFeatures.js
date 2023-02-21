@@ -9,17 +9,33 @@ const SearchFeatures = (props) => {
   const onCountryChange = (e) => {
     setCountry(e.target.value);
   };
+  const onCountryEnterChange = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      obtainSearchInformation(country).then((res) => {
+        const searchedCountries = res.data.map((e) => {
+          return {
+            name: e.name.common,
+            region: e.region,
+            capital: e.capital,
+            population: e.population,
+            flag: e.flags.png,
+          };
+        });
+        props.setBlock(searchedCountries);
+      });
+    }
+  };
   const listCountry = (e) => {
     e.preventDefault();
     obtainSearchInformation(country).then((res) => {
-      console.log(res);
       const searchedCountries = res.data.map((e) => {
         return {
           name: e.name.common,
           region: e.region,
           capital: e.capital[0],
           population: e.population,
-          flag: e.flags.svg,
+          flag: e.flags.png,
         };
       });
       props.setBlock(searchedCountries);
@@ -34,6 +50,7 @@ const SearchFeatures = (props) => {
           name="searchBar"
           onChange={onCountryChange}
           id="search"
+          onKeyDown={onCountryEnterChange}
         ></input>
         <button name="searchBar" onClick={listCountry} id="search-button">
           <svg
@@ -59,11 +76,21 @@ const SearchFeatures = (props) => {
         <option disable="true" hidden value="" id="filter">
           Filter by Region
         </option>
-        <option value="Africa" className="filter-region">Africa</option>
-        <option value="Americas" className="filter-region">America</option>
-        <option value="Asia" className="filter-region">Asia</option>
-        <option value="Europe" className="filter-region">Europe</option>
-        <option value="Oceania" className="filter-region">Oceania</option>
+        <option value="Africa" className="filter-region">
+          Africa
+        </option>
+        <option value="Americas" className="filter-region">
+          America
+        </option>
+        <option value="Asia" className="filter-region">
+          Asia
+        </option>
+        <option value="Europe" className="filter-region">
+          Europe
+        </option>
+        <option value="Oceania" className="filter-region">
+          Oceania
+        </option>
       </select>
     </div>
   );

@@ -1,17 +1,23 @@
 import Country from "./Country";
-import "./Stylesheets/CountriesStyle.css"
+import "./Stylesheets/CountriesStyle.css";
 import React from "react";
 const Countries = (props) => {
+  const details = (country) => {
+    props.setSelectedCountryDetails(country);
+  };
   const countries =
     props.regionFilter !== ""
-      ? (props.block.filter(
-          (country) => country.region === props.regionFilter
-        ))
+      ? props.block.filter((country) => country.region === props.regionFilter)
       : props.block;
+
   return (
     <div id="countries">
       {countries.map((country) => (
-        <Country key={country.name} country={country} />
+        <button className="country-button" key={country.name} onClick={() => {
+          details(country)
+        }}>
+          <Country country={country} />
+        </button>
       ))}
     </div>
   );
@@ -55,3 +61,37 @@ export default Countries;
 //   (country) => (country.name === region)
 // );
 // console.log("this is the filtered array", listSelectedCountries);
+
+
+
+
+// import { useState } from "react";
+// import Country from "./Country";
+// import "./Stylesheets/CountriesStyle.css";
+// const Countries = (props) => {
+//   const [buttonValue, setButtonValue] = useState("")
+//   const details = () => {
+//     props.setSelectedCountryDetails(buttonValue);
+//   };
+//   if(buttonValue === ""){
+//     console.log("obama")
+//   }else{
+//     details()
+//   }
+//   const countries =
+//     props.regionFilter !== ""
+//       ? props.block.filter((country) => country.region === props.regionFilter)
+//       : props.block;
+
+//   return (
+//     <div id="countries">
+//       {countries.map((country) => (
+//         <button className="country-button" key={country.name} onClick={() => {setButtonValue(country.name)}}>
+//           <Country country={country} />
+//         </button>
+//       ))}
+//     </div>
+//   );
+// };
+// export default Countries;
+

@@ -1,20 +1,17 @@
-import axios from "axios"
-
+import axios from "axios";
 
 export let obtainSearchInformation = async (name) => {
-  return await axios.get(
-   ` https://restcountries.com/v3.1/name/${name}`
-  )
-}
+  return await axios.get(` https://restcountries.com/v3.1/name/${name}`);
+};
 
 export let obtainContinent = async (region) => {
-  return await axios.get(
-    `https://restcountries.com/v2/region/${region}`
-  )
-}
+  return await axios.get(`https://restcountries.com/v2/region/${region}`);
+};
 
 export let obtainAllCountries = async () => {
-  return await axios.get(
-    "https://restcountries.com/v2/all"
-  )
-}
+  return await axios.get("https://restcountries.com/v2/all");
+};
+
+export let obtainCodeCountry = async (codeb) => {
+  return await axios.get(`https://restcountries.com/v2/alpha/${codeb}`);
+};
