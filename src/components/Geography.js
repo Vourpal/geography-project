@@ -8,46 +8,73 @@ const GeographyApp = () => {
   const [block, setBlock] = useState([]);
   const [regionFilter, setRegionFilter] = useState("");
   const [selectedCountryDetails, setSelectedCountryDetails] = useState(null);
+  const [countryCodes, setCountryCodes] = useState(new Map());
+  const [dynamicSearch, setDynamicSearch] = useState("");
 
-  useEffect(() => {
+  const initialData = () => {
     obtainAllCountries().then((res) => {
+      console.log(res, "initial block data before reformat");
+      const codeTranslations = new Map();
       const countries = res.data.map((e) => {
-        if (!e.currencies){
-          console.log(e)
+        if (!e.currencies || !e.languages) {
+          console.log(e);
         }
+        codeTranslations.set(e.alpha3Code, e.name);
         return {
+          alpha3Code: e.alpha3Code,
           name: e.name,
           nativename: e.nativeName,
           region: e.region,
           subregion: e.subregion,
           capital: e.capital,
           tld: e.topLevelDomain,
-          currencies: e.currencies ? e.currencies.map((e) =>(e.name)): [],
-          languages: e.languages.map((h) => (h.name)),
+          currencies: e.currencies ? e.currencies.map((e) => e.name) : [],
+          languages: e.languages.map((h) => h.name),
           population: e.population.toLocaleString("en-US"),
           flag: e.flags.png,
-          borders: e.borders
+          borders: e.borders,
+          svgFlag: e.flags.svg
         };
       });
+      setCountryCodes(codeTranslations);
       setBlock(countries);
     });
-  }, []);
-  if (selectedCountryDetails !== null) {
+  };
 
+  useEffect(() => {
+    initialData();
+  }, []);
+
+  const query = dynamicSearch;
+  const filterCountries = block.filter((country) => {
+    return country.name.toLowerCase().includes(query.toLowerCase());
+  });
+  console.log("mabinogi", filterCountries);
+  if (selectedCountryDetails !== null) {
     return (
       <div>
-       
         <header id="header">Where in the world?</header>
-        <CountryDetails block={block} selectedCountryDetails={selectedCountryDetails} setSelectedCountryDetails={setSelectedCountryDetails} setBlock={setBlock}/>
+        <CountryDetails
+          selectedCountryDetails={selectedCountryDetails}
+          setSelectedCountryDetails={setSelectedCountryDetails}
+          setBlock={setBlock}
+          countryCodes={countryCodes}
+        />
       </div>
     );
   } else {
     return (
       <div id="body-wrapper">
         <header id="header">Where in the world?</header>
-        <SearchFeatures setBlock={setBlock} setRegionFilter={setRegionFilter} />
-        <Countries
+        <SearchFeatures
+          setBlock={setBlock}
+          setRegionFilter={setRegionFilter}
           block={block}
+          originData={initialData}
+          setDynamicSearch={setDynamicSearch}
+        />
+        <Countries
+          block={filterCountries}
           regionFilter={regionFilter}
           setSelectedCountryDetails={setSelectedCountryDetails}
         />
@@ -92,8 +119,5 @@ export default GeographyApp;
 //       />
 //     </div>
 //   );
-
-
-
 
 // .map((e) => (e.name)),

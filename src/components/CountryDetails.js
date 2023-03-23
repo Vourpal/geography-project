@@ -6,6 +6,7 @@ const CountryDetails = (props) => {
     obtainCodeCountry(e).then((res) => {
       console.log("hitler", res.data);
       props.setSelectedCountryDetails({
+        alpha3Code: res.data.alpha3Code,
         name: res.data.name,
         nativename: res.data.nativeName,
         region: res.data.region,
@@ -15,33 +16,49 @@ const CountryDetails = (props) => {
         currencies: res.data.currencies.map((e) => e.name),
         languages: res.data.languages.map((h) => h.name),
         population: res.data.population.toLocaleString("en-US"),
-        flag: res.data.flags.png,
+        svgFlag: res.data.flags.svg,
         borders: res.data.borders,
       });
     });
   };
+  console.log("this is what you are getting back", props.codeTranslations);
   return (
-    <div>
-      <button
-        onClick={() => {
-          window.location.reload(false);
-        }}
-      >
-        Back
-      </button>
-      <main>
+    <div id="origin-wrapper">
+      <div id="button-wrapper">
+        <svg
+          id="arrow-image"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+        >
+          <title>arrow-left2</title>
+          <path d="M12.586 27.414l-10-10c-0.781-0.781-0.781-2.047 0-2.828l10-10c0.781-0.781 2.047-0.781 2.828 0s0.781 2.047 0 2.828l-6.586 6.586h19.172c1.105 0 2 0.895 2 2s-0.895 2-2 2h-19.172l6.586 6.586c0.39 0.39 0.586 0.902 0.586 1.414s-0.195 1.024-0.586 1.414c-0.781 0.781-2.047 0.781-2.828 0z"></path>
+        </svg>
+        <button
+          id="back-button"
+          onClick={() => {
+            window.location.reload(false);
+          }}
+        >
+          Back
+        </button>
+      </div>
+      <main id="main-wrapper">
         <img
-          src={props.selectedCountryDetails.flag}
+          id="flag-details"
+          src={props.selectedCountryDetails.svgFlag}
           alt="focused country map"
         ></img>
-        <div>
+        <div id="information-wrapper">
           <p>
             {" "}
             {props.selectedCountryDetails && (
               <span id="title-name">{props.selectedCountryDetails.name}</span>
             )}
           </p>
-          <ul>
+          <ul id="list-wrapper">
             <li className="title-format">
               Native Name:{" "}
               {props.selectedCountryDetails && (
@@ -109,8 +126,8 @@ const CountryDetails = (props) => {
               )}{" "}
             </li>
           </ul>
-          <div>
-            Border Countries:{" "}
+          <div id="button-wrapper2">
+            <span className="format-title">Border Countries:{" "}</span>
             {props.selectedCountryDetails.borders ? (
               props.selectedCountryDetails.borders.map((e) => (
                 <button
@@ -118,12 +135,13 @@ const CountryDetails = (props) => {
                   onClick={() => {
                     borderCountry(e);
                   }}
+                  className="border-buttons"
                 >
-                 {e}
+                  {props.countryCodes.get(e)}
                 </button>
               ))
             ) : (
-              <span>None</span>
+              <span className="format-title">None</span>
             )}
           </div>
         </div>

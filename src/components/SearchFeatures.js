@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { obtainSearchInformation } from "./api";
+
 import "./Stylesheets/SearchFeaturesStyle.css";
 const SearchFeatures = (props) => {
   const [country, setCountry] = useState("");
@@ -8,39 +8,11 @@ const SearchFeatures = (props) => {
   };
   const onCountryChange = (e) => {
     setCountry(e.target.value);
+    props.setDynamicSearch(e.target.value);
   };
-  const onCountryEnterChange = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      obtainSearchInformation(country).then((res) => {
-        const searchedCountries = res.data.map((e) => {
-          return {
-            name: e.name.common,
-            region: e.region,
-            capital: e.capital,
-            population: e.population,
-            flag: e.flags.png,
-          };
-        });
-        props.setBlock(searchedCountries);
-      });
-    }
-  };
-  const listCountry = (e) => {
-    e.preventDefault();
-    obtainSearchInformation(country).then((res) => {
-      const searchedCountries = res.data.map((e) => {
-        return {
-          name: e.name.common,
-          region: e.region,
-          capital: e.capital[0],
-          population: e.population,
-          flag: e.flags.png,
-        };
-      });
-      props.setBlock(searchedCountries);
-    });
-  };
+
+  console.log(props.block, "hehehe");
+  console.log(country);
 
   return (
     <div id="navBar">
@@ -50,9 +22,8 @@ const SearchFeatures = (props) => {
           name="searchBar"
           onChange={onCountryChange}
           id="search"
-          onKeyDown={onCountryEnterChange}
         ></input>
-        <button name="searchBar" onClick={listCountry} id="search-button">
+        <button name="searchBar" id="search-button">
           <svg
             fill="#000000"
             height="800px"
@@ -72,7 +43,7 @@ const SearchFeatures = (props) => {
           </svg>
         </button>
       </div>
-      <select defaultValue="" onChange={onRegionChange}>
+      <select defaultValue="" onChange={onRegionChange} id="filter-button">
         <option disable="true" hidden value="" id="filter">
           Filter by Region
         </option>
@@ -101,3 +72,36 @@ export default SearchFeatures;
 //    <button name="searchBar" onClick={() => {
 //   props.obama("pito grande")
 // }}>
+
+// if(props.block.name.includes(e) === true || props.block.name.toLowerCase().includes(e) ===){
+//   return (props.block)
+// }
+
+// if (
+//   props.block.name.includes(country) ||
+//   props.block.name.toLowerCase().includes(country)
+// ) {
+//   console.log("i am working");
+// }
+
+// const onCountryEnterChange = (e) => {
+//   if (e.key === "Enter") {
+//     const updatedSearch = props.block.map((e) => (
+//       if(e.name.includes(country) || e.name.toLowerCase().includes(country)){
+//         return{
+//           name: e.name,
+//           nativename: e.nativeName,
+//           region: e.region,
+//           subregion: e.subregion,
+//           capital: e.capital,
+//           tld: e.topLevelDomain,
+//           currencies: e.currencies ? e.currencies.map((e) =>(e.name)): [],
+//           languages: e.languages.map((h) => (h.name)),
+//           population: e.population.toLocaleString("en-US"),
+//           flag: e.flags.png,
+//           borders: e.borders
+//         }
+//     }))
+
+//   }
+// };
