@@ -111,7 +111,7 @@ div #root{
   }
   #main-wrapper {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     height: initial;
     position: initial;
     flex-direction: column;
@@ -168,5 +168,8 @@ div #root{
 }
 body, html {
   height: initial;
+}
+#main-wrapper{
+  align-items: baseline;
 }
 }
