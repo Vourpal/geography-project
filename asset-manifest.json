@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/geography-project/static/css/main.9ad74c4b.css",
+    "main.js": "/geography-project/static/js/main.a7a11741.js",
+    "static/js/787.8bb54ed1.chunk.js": "/geography-project/static/js/787.8bb54ed1.chunk.js",
+    "index.html": "/geography-project/index.html",
+    "main.9ad74c4b.css.map": "/geography-project/static/css/main.9ad74c4b.css.map",
+    "main.a7a11741.js.map": "/geography-project/static/js/main.a7a11741.js.map",
+    "787.8bb54ed1.chunk.js.map": "/geography-project/static/js/787.8bb54ed1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9ad74c4b.css",
+    "static/js/main.a7a11741.js"
+  ]
+}
