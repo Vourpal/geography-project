@@ -12,7 +12,7 @@ export let obtainContinent = async (region) => {
 
 // ❌ All countries: switch from v2 to v3.1
 export let obtainAllCountries = async () => {
-  return await axios.get("https://restcountries.com/v3.1/all");
+  return await axios.get("https://restcountries.com/v3.1/all?fields=name,cca2,region,flags");
 };
 
 // ❌ Country by code: switch from v2 to v3.1
