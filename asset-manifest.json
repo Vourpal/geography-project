@@ -1,15 +1,22 @@
 {
   "files": {
-    "main.css": "/geography-project/static/css/main.9ad74c4b.css",
-    "main.js": "/geography-project/static/js/main.a7a11741.js",
-    "static/js/787.8bb54ed1.chunk.js": "/geography-project/static/js/787.8bb54ed1.chunk.js",
+    "main.css": "/geography-project/static/css/main.2a05cc0b.chunk.css",
+    "main.js": "/geography-project/static/js/main.ca7f9b27.chunk.js",
+    "main.js.map": "/geography-project/static/js/main.ca7f9b27.chunk.js.map",
+    "runtime-main.js": "/geography-project/static/js/runtime-main.bc08ddfc.js",
+    "runtime-main.js.map": "/geography-project/static/js/runtime-main.bc08ddfc.js.map",
+    "static/js/2.5d9fcea3.chunk.js": "/geography-project/static/js/2.5d9fcea3.chunk.js",
+    "static/js/2.5d9fcea3.chunk.js.map": "/geography-project/static/js/2.5d9fcea3.chunk.js.map",
+    "static/js/3.d3844e6c.chunk.js": "/geography-project/static/js/3.d3844e6c.chunk.js",
+    "static/js/3.d3844e6c.chunk.js.map": "/geography-project/static/js/3.d3844e6c.chunk.js.map",
     "index.html": "/geography-project/index.html",
-    "main.9ad74c4b.css.map": "/geography-project/static/css/main.9ad74c4b.css.map",
-    "main.a7a11741.js.map": "/geography-project/static/js/main.a7a11741.js.map",
-    "787.8bb54ed1.chunk.js.map": "/geography-project/static/js/787.8bb54ed1.chunk.js.map"
+    "static/css/main.2a05cc0b.chunk.css.map": "/geography-project/static/css/main.2a05cc0b.chunk.css.map",
+    "static/js/2.5d9fcea3.chunk.js.LICENSE.txt": "/geography-project/static/js/2.5d9fcea3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/css/main.9ad74c4b.css",
-    "static/js/main.a7a11741.js"
+    "static/js/runtime-main.bc08ddfc.js",
+    "static/js/2.5d9fcea3.chunk.js",
+    "static/css/main.2a05cc0b.chunk.css",
+    "static/js/main.ca7f9b27.chunk.js"
   ]
 }
